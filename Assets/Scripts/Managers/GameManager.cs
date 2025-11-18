@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
+    public bool IsPause = false;
     
     private void Awake()
     {
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
     
     private void InitializeGame()
     {
+        if (SceneManager.GetActiveScene().name != "GameManager") return;
+
         SceneManager.LoadScene("MainMenu");
     }
 
